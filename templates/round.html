@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Spoiler free historic F1 results</title>
+    </head>
+    <body>
+        <h1>F1 Season {{ year }} </h1> 
+        <p><a href="/"> Back to all seasons</a></p>
+        {% for rou in rounds %}
+        <a href="/{{year}}/{{rou['round']}}">{{rou['round']}}: {{rou['name']}}</a><br/>
+        {% endfor %}
+
+        <h1>Round {{ race_round }}: {{ race['name'] }} </h1> 
+        {{ race['date'] }}
+        <h2 id="quali">Starting grid</h2>
+        <a href="?quali=t#quali">(click to show)</a>
+
+        <h2>Driver championship standings BEFORE the race</h2>
+        <table>
+        {% for standing in standings %}
+        <tr>
+            <td> {{ standing['forename'] }} {{ standing['surname'] }} </td> 
+            <td> {{ standing['name'] }} </td> 
+            <td> {{'%0.1f' % standing['points']|float}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+        <h2 id="results">Driver championship standings AFTER the race</h2>
+        <a href="?results=t#results">(click to show)</a>
+    </body>
+</html>

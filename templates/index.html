@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Spoiler free historic F1 results</title>
+    </head>
+    <body>
+        <h1>Spoiler free historical F1 results</h1>
+        <h2>Seasons</h2>
+        <table>
+            <tr>        
+                {% for season in seasons %}
+                <td>
+                    <a href="/{{season['year']}}">{{ season['year'] }}</a>
+                </td>
+            {% if loop.index is divisibleby 10 %}
+            </tr><tr>
+            {% endif %}
+
+            {% endfor %}
+                    
+            </tr>
+        </table>
+
+
+
+    </body>
+</html>

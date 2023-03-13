@@ -1,0 +1,8 @@
+*
+
+!.gitignore
+
+!*.py
+
+!/templates/
+!/templates/*.html
