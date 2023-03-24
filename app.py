@@ -83,6 +83,8 @@ def race(year, race_round):
             reverse=True)
 
     conn.close()
+        test
+    
     return render_template(
             'round.html', 
             year = year, 
