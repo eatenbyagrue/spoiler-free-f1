@@ -4,7 +4,7 @@ import sqlite3
 app = Flask(__name__)
 
 def get_db_connection():
-    conn = sqlite3.connect('f1db.db')
+    conn = sqlite3.connect('f1db.sqlite')
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -15,7 +15,8 @@ def index():
     seasons = conn.execute('select * from seasons order by year').fetchall()
     conn.close()
 
-    return render_template('index.html', seasons = seasons)
+    # return render_template('index.html', seasons = seasons)
+    return render_template('bulma.html', seasons = seasons)
 
 @app.route('/<int:year>')
 def season(year):
